@@ -1,0 +1,122 @@
+:root {
+  --darkPink: #c27ba0;
+  --lightishPink: #ea9999;
+  --orange: #dd7e6b;
+}
+body
+{
+  background-color:#ea9999
+}
+#nav-bar
+{
+  font-size: 15px;
+  display:flex;
+  width: 100vw;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #dd7e6b;
+  height: 50px;
+}
+.nav-button
+{
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+}
+
+.nav-buttonTxt {
+  height: fit-content;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px
+}
+.nav-button:hover
+{
+  border: 4px solid #c27ba0;
+}
+#business-logo
+{
+  max-height: 100%
+}
+#nav-outlet
+{
+  margin-top: 60px
+}
+.page
+{
+  color:white;
+}
+.title
+{
+  text-align: center;
+  font-size: 50px;
+}
+#bookinfo
+{
+  display: flex;
+}
+#book{
+  width:50%;
+  font-size: xxx-large;
+  padding-top:10px;
+  text-align: center;
+}
+#info
+{
+  width:50%;
+  font-size: xxx-large;
+  text-align: center;
+}
+#book-now-button
+{
+  font-size: 35px;
+  margin-left:auto;
+  margin-right:auto;
+  display:flex;
+  background-color:#dd7e6b;
+  border-radius: 10px;
+}
+#more-info-button
+{
+  font-size: 35px;
+  margin-left:auto;
+  margin-right:auto;
+  display:flex;
+  background-color:#dd7e6b;
+  border-radius: 10px;
+}
+#team
+{
+  justify-content: center;
+  display: flex;
+}
+#team-title
+{
+  justify-content: center;
+  display:flex;
+  margin-top:20px;
+}
+#cal-info
+{
+  width:50%;
+  font-size: 80px;
+  padding-top:10px;
+  text-align: center;
+  justify-content: center;
+}
+#calendar
+{
+  margin:auto;
+  width:25%;
+  align-content: center;
+}
+#info-calendar
+{
+  display:flex;
+}
+#cartPage
+{
+  font-size:30px;
+}
