@@ -155,15 +155,16 @@ export function Cart() {
     }
     function getRealTime(realHour: number, realMinute: number)
     {
-        (if realHour > 12)
-            return realHour + ":" + realMinute + "PM";
+        if (realHour > 12)
+            return realHour%12 + ":" + realMinute + "PM";
+        else return realHour+ ":" + realMinute + "AM";
     }
-    const [items, setItems] = useState(getItem("bookingInfo"));
+    const [items] = useState(getItem("bookingInfo"));
     return (
         <div className="page" id = "cartPage">
             <h1 className="title">Confirm Booking</h1>
             {items.map((item, index) => <div key ={index}>
-            Booking For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at getRealTime((dayjs(item).hour)}
+            Booking For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at {getRealTime((dayjs(item).hour()),(dayjs(item).minute()))}
         </div>)}
         </div>
     );
