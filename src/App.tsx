@@ -153,10 +153,39 @@ export function Cart() {
         if(month == 11)
             return "December";
     }
+
     function getRealTime(realHour: number, realMinute: number)
     {
-        if (realHour > 12)
+
+        if (realHour >= 12)
+        {
+            if(realMinute < 9)
+            {
+                if(realHour == 12)
+                {
+                    return realHour + ":" + "0" + realMinute + "PM";
+                }
+                return realHour%12 + ":" + "0" + realMinute + "PM";
+            }
+            if(realHour == 12)
+            {
+                return realHour + ":" + realMinute + "PM";
+            }
             return realHour%12 + ":" + realMinute + "PM";
+        }
+
+        if(realMinute < 9)
+        {
+            if(realHour == 0)
+            {
+                return "12:" + "0" + realMinute + "AM";
+            }
+            return realHour+ ":" + "0" + realMinute + "AM";
+        }
+        if(realHour == 0)
+        {
+            return "12:" + realMinute + "AM";
+        }
         else return realHour+ ":" + realMinute + "AM";
     }
     const [items] = useState(getItem("bookingInfo"));
@@ -167,5 +196,5 @@ export function Cart() {
             Booking For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at {getRealTime((dayjs(item).hour()),(dayjs(item).minute()))}
         </div>)}
         </div>
-    );
-}
+            )
+        }
