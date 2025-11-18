@@ -105,10 +105,56 @@ export function Products() {
 }
 
 export function Cart() {
+    const [items, setItems] = useState(getItem("bookingInfo"));
     function getItem(key: string): string[]{
         const item = localStorage.getItem(key);
         return item ? JSON.parse(item) as string[] : [];
     }
+    function getTotalCost()
+    {
+        let totalCost = 0;
+        const storedArray = localStorage.getItem("bookingInfo");
+        let myArray = [];
+        if(storedArray)
+        {
+            myArray = JSON.parse(storedArray);
+        }
+        const arrayLength = myArray.length;
+        for(let i = 0; i < arrayLength; i++)
+        {
+            totalCost += 99;
+        }
+        return totalCost;
+    }
+    function clearCart()
+    {
+        const newArray = getItem("bookingInfo");
+        if(newArray)
+        {
+            for(let i = newArray.length - 1;i>=0;i--)
+            {
+                newArray.pop();
+            }
+        }
+        setItems(newArray)
+        localStorage.clear();
+    }
+    // function itemDelete(removeIndex: number)
+    // {
+    //     const oldArray = getItem("bookingInfo");
+    //     const newArray = []
+    //     if(oldArray)
+    //     {
+    //         for(let i = 0; i < oldArray.length; i++)
+    //         {
+    //            if(oldArray[i] !== removeIndex)
+    //            {
+    //                newArray.push(oldArray[i])
+    //            }
+    //         }
+    //
+    //     }
+    // }
     function getDayOfWeek(dayOfWeek: number)
     {
         if(dayOfWeek == 0)
@@ -153,10 +199,8 @@ export function Cart() {
         if(month == 11)
             return "December";
     }
-
     function getRealTime(realHour: number, realMinute: number)
     {
-
         if (realHour >= 12)
         {
             if(realMinute < 9)
@@ -188,13 +232,16 @@ export function Cart() {
         }
         else return realHour+ ":" + realMinute + "AM";
     }
-    const [items] = useState(getItem("bookingInfo"));
     return (
         <div className="page" id = "cartPage">
             <h1 className="title">Confirm Booking</h1>
             {items.map((item, index) => <div key ={index}>
-            Booking For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at {getRealTime((dayjs(item).hour()),(dayjs(item).minute()))}
+            Booking For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at {getRealTime((dayjs(item).hour()),(dayjs(item).minute()))} $99 <button id = "deleteButton" onClick = {()=> itemDelete(index)}>🗑️</button>
         </div>)}
+            <div id = "totalCost">
+                Total Cost: ${getTotalCost()}
+            </div>
+            <button  id = "clearButton" onClick={clearCart}>Clear Cart</button>
         </div>
             )
         }
