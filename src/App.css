@@ -30,7 +30,8 @@ body
   height: fit-content;
   margin-top: 5px;
   margin-bottom: 5px;
-  padding: 5px
+  padding: 5px;
+  color: white;
 }
 .nav-button:hover
 {
@@ -77,6 +78,14 @@ body
   display:flex;
   background-color:#dd7e6b;
   border-radius: 10px;
+  color: white;
+  font-family:"Times New Roman", serif;
+}
+#book-now-button:hover
+{
+  background-color:#995749;
+  color:grey;
+
 }
 #more-info-button
 {
@@ -86,6 +95,13 @@ body
   display:flex;
   background-color:#dd7e6b;
   border-radius: 10px;
+  color: white;
+  font-family:"Times New Roman", serif;
+}
+#more-info-button:hover
+{
+  background-color:#995749;
+  color:grey;
 }
 #team
 {
@@ -125,4 +141,39 @@ body
   background-color:#dd7e6b;
   border-radius: 10px;
   font-size:35px;
+  color:white;
+  font-family: "Times New Roman", serif;
+}
+#clearButton:hover
+{
+  background-color:#995749;
+  color:grey;
+}
+.cartItem
+{
+  border-radius: 20px;
+  padding:25px;
+  margin:20px;
+  background-color: #dd7e6b;
+  width: fit-content;
+}
+#deleteButton
+{
+  background-color:#dd7e6b;
+  border: none;
+  font-size: 35px;
+  border-radius:20px;
+  margin:20px;
+}
+#deleteButton:hover
+{
+  background-color:#995749;
+}
+#cart-everything
+{
+  display:flex;
+}
+#totalCost
+{
+  font-size:80px;
 }

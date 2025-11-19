@@ -139,22 +139,23 @@ export function Cart() {
         setItems(newArray)
         localStorage.clear();
     }
-    // function itemDelete(removeIndex: number)
-    // {
-    //     const oldArray = getItem("bookingInfo");
-    //     const newArray = []
-    //     if(oldArray)
-    //     {
-    //         for(let i = 0; i < oldArray.length; i++)
-    //         {
-    //            if(oldArray[i] !== removeIndex)
-    //            {
-    //                newArray.push(oldArray[i])
-    //            }
-    //         }
-    //
-    //     }
-    // }
+    function itemDelete(removeIndex: number)
+    {
+        const oldArray = getItem("bookingInfo");
+        const newArray = []
+        if(oldArray)
+        {
+            for(let i = 0; i < oldArray.length; i++)
+            {
+               if(i !== removeIndex)
+               {
+                   newArray.push(oldArray[i])
+               }
+            }
+        }
+        setItems(newArray)
+        localStorage.setItem("bookingInfo", JSON.stringify(newArray))
+    }
     function getDayOfWeek(dayOfWeek: number)
     {
         if(dayOfWeek == 0)
@@ -235,13 +236,25 @@ export function Cart() {
     return (
         <div className="page" id = "cartPage">
             <h1 className="title">Confirm Booking</h1>
-            {items.map((item, index) => <div key ={index}>
-            Booking For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at {getRealTime((dayjs(item).hour()),(dayjs(item).minute()))} $99 <button id = "deleteButton" onClick = {()=> itemDelete(index)}>🗑️</button>
-        </div>)}
-            <div id = "totalCost">
-                Total Cost: ${getTotalCost()}
+            <div id = "cart-everything">
+                <div>{items.map((item, index) => <div style={{display: "flex"}}>
+                    <div className="cartItem" key={index}>
+                        Booking
+                        For: {getDayOfWeek(dayjs(item).day())}, {getMonth(dayjs(item).month())} {dayjs(item).date()}, {dayjs(item).year()} at {getRealTime((dayjs(item).hour()), (dayjs(item).minute()))} $99
+                    </div>
+                    <button id="deleteButton" onClick={() => itemDelete(index)}>🗑️</button>
+                </div>)}
+                </div>
+                <div id="totalCost-Clear">
+                    <div id="totalCost">
+                        Total Cost: ${getTotalCost()}
+                    </div>
+                    <div id="clearDiv">
+                        <button id="clearButton" onClick={clearCart}>Clear Cart</button>
+                    </div>
+                </div>
             </div>
-            <button  id = "clearButton" onClick={clearCart}>Clear Cart</button>
         </div>
-            )
-        }
+
+    )
+}
