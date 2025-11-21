@@ -45,7 +45,14 @@ export function Home() {
     };
     const scroll = () => {
         window.scrollTo({ top: (document.getElementById("team-title") as HTMLElement).offsetTop, behavior: 'smooth', });
+        (document.getElementById("more-info-1") as HTMLElement).classList.add("show");
+        (document.getElementById("more-info-2") as HTMLElement).classList.add("show");
+        (document.getElementById("more-info-3") as HTMLElement).classList.add("show");
+        (document.getElementById("more-info-4") as HTMLElement).classList.add("show");
     }
+
+
+
     return (
         <div className="page">
             <h1 className="title"> Welcome To Tailored Finds: Personal Style, Perfectly Curated For You!</h1>
@@ -70,8 +77,22 @@ export function Home() {
             <div id="team">
                 <img src="Images/business-team.png"></img>
             </div>
-            <div>
-
+            <div id="more-info">
+                <div className = "info-item" id={"more-info-1"}>
+                    <h1 className = "info-header">Personalized Style Curation</h1>
+                    Experience a smarter, more effortless way to discover your look. Our platform gets to know your individual tastes, lifestyle, and budget, then handpicks clothing and accessories that genuinely reflect who you are. Instead of scrolling endlessly or second-guessing your choices, you’ll receive thoughtfully curated recommendations that fit your style goals and daily needs. Save time, feel confident in every selection, and enjoy a shopping experience that finally feels personal, intuitive, and made just for you.                </div>
+                <div className = "info-item"  id={"more-info-2"}>
+                    <h1 className = "info-header">Quiz to Closet</h1>
+                    Your answers guide every recommendation, ensuring each item feels intentionally chosen just for you. Instead of sifting through endless options, you’ll receive curated pieces that match your style preferences, fit needs, and budget. This makes shopping not only easier and more enjoyable, but also more personalized than ever—helping you discover items you’ll love with confidence and ease.
+                </div>
+                <div className = "info-item"  id={"more-info-3"}>
+                    <h1 className = "info-header">Style Without Stress</h1>
+                    You’re a busy, style-conscious individual who wants to look and feel your best—without wasting time hunting for the right clothes and accessories. Whether your schedule is packed, you’re overwhelmed by endless options, or you simply prefer a more effortless way to shop, you deserve a simpler path to great style. Our platform streamlines the entire process, helping you quickly discover pieces that fit your taste, your lifestyle, and your budget, so you can look confident and put-together without the stress or the hours of searching.
+                </div>
+                <div className = "info-item"  id={"more-info-4"}>
+                    <h1 className = "info-header">Style Made Simple</h1>
+                    This includes professionals, students, and anyone who values both convenience and personal expression. Whether you’re dressing for the office, campus, or everyday life, you want your wardrobe to reflect who you are—without adding extra effort to your routine. Our platform supports people from all walks of life who appreciate style that’s easy, authentic, and tailored to their unique identity and schedule. If you care about looking put-together while keeping things simple, you’re exactly who we’re here for.
+                </div>
             </div>
 
         </div>
